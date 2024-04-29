@@ -40,7 +40,7 @@ window.codioIDE.coachBot.register({
           Task Description'
         
         const messagesArray = [
-          {"role": "user", "content": userPrompt},   
+          {"role": "user", "content": userPrompt + ' Respond with summary'},   
         ]
         
         const llm_response = window.codioIDE.coachBot.ask({
