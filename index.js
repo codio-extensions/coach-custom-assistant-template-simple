@@ -8,11 +8,11 @@ window.codioIDE.coachBot.register({
   steps: [
   
     // Step 1: Display text when assistant button is clicked in Coach
-    {
-    type: window.codioIDE.coachBot.ACTIONS_TYPES.INPUT,
-    key: 'userMessage',
-    text: 'What can I help you with?'
-    },
+    // {
+    // type: window.codioIDE.coachBot.ACTIONS_TYPES.INPUT,
+    // key: 'userMessage',
+    // text: 'What can I help you with?'
+    // },
     // Step 2: Collect question and context (Opened guidesPage, Opened Files, Current Error Message) and "ask" Claude (Anthropic's LLM)
     {
       type: window.codioIDE.coachBot.ACTIONS_TYPES.CALLBACK,
@@ -45,7 +45,8 @@ window.codioIDE.coachBot.register({
         
         const llm_response = window.codioIDE.coachBot.ask({
           systemPrompt: assistantSystemPrompt,
-          messages: messagesArray,
+          userPrompt: userPrompt + ' Respond with summary'
+          // messages: messagesArray,
         }, onDone)
 
         console.log('bot response', llm_response)
