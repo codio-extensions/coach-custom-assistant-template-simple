@@ -1,5 +1,5 @@
 window.codioIDE.coachBot.register({
-  id: 'customButton',
+  id: 'changeButtonNameHere',
   
   // Name of the custom button that will be displayed in Coach
   text: 'Help me with <task>', 
