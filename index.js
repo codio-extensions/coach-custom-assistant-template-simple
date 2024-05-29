@@ -2,7 +2,7 @@ window.codioIDE.coachBot.register({
   id: 'changeButtonNameHere',
   
   // Name of the custom button that will be displayed in Coach
-  text: 'Help me with <task>', 
+  text: 'Ask me questions about my work', 
   
   // steps: list of objects that describe the order of things done by your assistant
   steps: [
@@ -11,7 +11,7 @@ window.codioIDE.coachBot.register({
     // {
     // type: window.codioIDE.coachBot.ACTIONS_TYPES.INPUT,
     // key: 'userMessage',
-    // text: 'What can I help you with?'
+    // text: 'Hi, '
     // },
     // Step 2: Collect question and context (Opened guidesPage, Opened Files, Current Error Message) and "ask" Claude (Anthropic's LLM)
     {
@@ -24,7 +24,7 @@ window.codioIDE.coachBot.register({
         console.log('bot context', context)
 
         // Write a custom loading message while query is sent and response is generated
-        window.codioIDE.coachBot.write('Please wait. I will provide info shortly...')
+        window.codioIDE.coachBot.write('...')
 
         const onDone = () => {
           console.log('bot on done callback')
@@ -32,7 +32,7 @@ window.codioIDE.coachBot.register({
 
         // Define your assistant's systemPrompt
         // Refer to Anthropic's guide on system prompts: https://docs.anthropic.com/claude/docs/system-prompts
-        const assistantSystemPrompt = 'You are a helpful assistant. Your job is to help with <task>.'
+        const assistantSystemPrompt = 'You are a helpful assistant. Your job is to ask questions about the student code file and programming assignment that will be provided.'
 
         //Define your assistant's userPrompt - this is where you will provide all the context you collected along with the task you want the LLM to generate text for.
         const userPrompt = 'Here is the programming assignment \n<programming_assignment>\n' + context.guidesPage.content + '\n</programming_assignment>\n\
@@ -43,9 +43,9 @@ window.codioIDE.coachBot.register({
           {"role": "user", "content": userPrompt + ' Respond with summary'},   
         ]
         
-        const llm_response = window.codioIDE.coachBot.ask({
+        window.codioIDE.coachBot.ask({
           systemPrompt: assistantSystemPrompt,
-          userPrompt: userPrompt + ' Respond with summary'
+          userPrompt: userPrompt + ' Ask 2 questions about this assignment'
           // messages: messagesArray,
         }, onDone)
 
