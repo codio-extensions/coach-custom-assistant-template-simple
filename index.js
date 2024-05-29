@@ -24,7 +24,7 @@ window.codioIDE.coachBot.register({
         console.log('bot context', context)
 
         // Write a custom loading message while query is sent and response is generated
-        window.codioIDE.coachBot.write('...')
+        // window.codioIDE.coachBot.write('...')
 
         const onDone = () => {
           console.log('bot on done callback')
