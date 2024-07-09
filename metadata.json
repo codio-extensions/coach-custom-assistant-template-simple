@@ -3,6 +3,6 @@
   "type": "helper",
   "properties": {
     "user_type": "all", 
-    "component": "assignment"
+    "component": "all"
   }
 }
